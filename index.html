@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ButtonGenerator</title>
+</head>
+<body>
+  <header>Button Generator</header>
+  <section class="button_display_area">
+    <button id="button">Button</button>
+  </section>
+  <pre id="generatedCSSCode"></pre>
+  <section class="parameter_block">
+    <section class="parameter_menu">
+      <h3 class="parameter_menu_header">style parameter</h3>
+      <ol class="parameter_list">
+        <li class="parameter_unit">
+          <h6 class="parameter_header">height</h6>
+          <code id="heightDisplayValue" class="parameter_value">21px</code>
+          <input type="range" id="heightRange" class="parameter_manipulator" value="21" min="0" max="100">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">width</h6>
+          <code id="widthDisplayValue" class="parameter_value">54px</code>
+          <input type="range" id="widthRange" class="parameter_manipulator" value="54" min="0" max="200">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">borderRadius</h6>
+          <code id="borderRadiusDisplayValue" class="parameter_value">2px</code>
+          <input type="range" id="borderRadiusRange" class="parameter_manipulator" value="2" min="0" max="50">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">borderWidth</h6>
+          <code id="borderWidthDisplayValue" class="parameter_value">2px</code>
+          <input type="range" id="borderWidthRange" class="parameter_manipulator" value="2" min="0" max="100">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">borderStyle</h6>
+          <code id="borderStyleDisplayValue" class="parameter_value">unset</code>
+          <input type="range" id="borderStyleRange" class="parameter_manipulator" value="7" min="0" max="9">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">borderColor</h6>
+          <code id="borderColorDisplayValue" class="parameter_value">#000000</code>
+          <input type="color" id="borderColorPicker" class="parameter_manipulator" value="#000000">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">fontSize</h6>
+          <code id="fontSizeDisplayValue" class="parameter_value">13px</code>
+          <input type="range" id="fontSizeRange" class="parameter_manipulator" value="13" min="0" max="30">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">fontWeight</h6>
+          <code id="fontWeightDisplayValue" class="parameter_value">400</code>
+          <input type="range" id="fontWeightRange" class="parameter_manipulator" value="400" min="100" max="900" step="100">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">color</h6>
+          <code id="colorDisplayValue" class="parameter_value">#000000</code>
+          <input type="color" id="colorPicker" class="parameter_manipulator" value="#000000">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowX</h6>
+          <code id="boxShadowXDisplayValue" class="parameter_value">0px</code>
+          <input type="range" id="boxShadowXRange" class="parameter_manipulator" value="0" min="0" max="50">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowY</h6>
+          <code id="boxShadowYDisplayValue" class="parameter_value">0px</code>
+          <input type="range" id="boxShadowYRange" class="parameter_manipulator" value="0" min="0" max="50">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowBlur</h6>
+          <code id="boxShadowBlurDisplayValue" class="parameter_value">0px</code>
+          <input type="range" id="boxShadowBlurRange" class="parameter_manipulator" value="0" min="0" max="50">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowSpread</h6>
+          <code id="boxShadowSpreadDisplayValue" class="parameter_value">0px</code>
+          <input type="range" id="boxShadowSpreadRange" class="parameter_manipulator" value="0" min="0" max="50">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowColor</h6>
+          <code id="boxShadowColorDisplayValue" class="parameter_value">#ffffff</code>
+          <input type="color" id="boxShadowColorPicker" class="parameter_manipulator" value="#ffffff">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowOpacity</h6>
+          <code id="boxShadowOpacityDisplayValue" class="parameter_value">0.75</code>
+          <input type="range" id="boxShadowOpacityRange" class="parameter_manipulator" value="0.75" min="0" max="1" step="0.01">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">backgroundColor</h6>
+          <code id="backgroundColorDisplayValue" class="parameter_value">#efefef</code>
+          <input type="color" id="backgroundColorPicker" class="parameter_manipulator" value="#efefef">
+        </li>
+      </ol>
+    </section>
+  </section>
+  <section class="generate_code_block">
+    <button id="generateCSSCodeButton">Generate CSS Code</button>
+    <pre id="generateCSSCodeArea"></pre>
+  </section>
+  <footer><p>Feel free to send Issues or Pull Requests to&nbsp;<a href="https://github.com/okaryo/ButtonGenerator" target="_blanck" rel="noopener noreferrer">Github</a>.</p></footer>
+  <script src="bundle.js"></script>
+</body>
+</html>
