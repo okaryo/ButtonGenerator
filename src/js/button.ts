@@ -34,7 +34,7 @@ export class ButtonStyle {
     this.boxShadowSpread  = '0px'
     this.boxShadowColor   = '#ffffff'
     this.boxShadowOpacity = 0.75
-    this.backgroundColor  = '#ffffff'
+    this.backgroundColor  = '#efefef'
 
     this.setHeightEventListener()
     this.setWidthEventListener()
