@@ -14,7 +14,6 @@ const randomStyleClassForGenerateCodeButton = [
 const randomNumber = Math.floor(Math.random() * 5)
 generateCSSCodeButton?.classList.add(randomStyleClassForGenerateCodeButton[randomNumber])
 
-
 generateCSSCodeButton?.addEventListener('click', () => {
   const generatedCSSCodeArea = document.getElementById('generateCSSCodeArea')
   const generatedCSSCode = document.querySelector('#generateCSSCodeArea pre') as HTMLElement

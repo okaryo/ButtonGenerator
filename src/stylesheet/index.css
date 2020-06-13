@@ -35,17 +35,21 @@ header {
 }
 
 .parameter_menu {
-  max-height: 45vh;
   width: 45%;
   max-width: 300px;
   padding: 12px;
-  overflow-y: scroll;
 }
 
 .parameter_menu_header {
   margin: 0 0 8px;
   font-size: 18px;
   font-weight: 500;
+}
+
+.parameter_list {
+  box-sizing: border-box;
+  max-height: 45vh;
+  overflow-y: scroll;
 }
 
 .parameter_unit + .parameter_unit {
@@ -87,7 +91,7 @@ header {
   display: none;
   margin-top: 20px;
   padding: 10px;
-  max-width: 480px;
+  max-width: 90%;
   overflow-x: scroll;
   font-weight: 900;
   background-color: #f5f5f5;
