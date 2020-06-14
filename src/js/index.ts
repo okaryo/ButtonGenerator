@@ -19,9 +19,13 @@ generateCSSCodeButton?.addEventListener('click', () => {
   const generatedCSSCode = document.querySelector('#generateCSSCodeArea pre') as HTMLElement
 
   if (generatedCSSCodeArea && generatedCSSCode) {
-    const redValue   = parseInt(button.boxShadowColor.slice(1, 3), 16)
-    const greenValue = parseInt(button.boxShadowColor.slice(3, 5), 16)
-    const blueValue  = parseInt(button.boxShadowColor.slice(5, 7), 16)
+    const boxShadowRedValue   = parseInt(button.boxShadowColor.slice(1, 3), 16)
+    const boxShadowGreenValue = parseInt(button.boxShadowColor.slice(3, 5), 16)
+    const boxShadowBlueValue  = parseInt(button.boxShadowColor.slice(5, 7), 16)
+    const hoverBoxShadowRedValue   = parseInt((button.hoverBoxShadowColor.value as string).slice(1, 3), 16)
+    const hoverBoxShadowGreenValue = parseInt((button.hoverBoxShadowColor.value as string).slice(3, 5), 16)
+    const hoverBoxShadowBlueValue  = parseInt((button.hoverBoxShadowColor.value as string).slice(5, 7), 16)
+
     const cssCode = `.button {
   height: ${button.height};
   width: ${button.width};
@@ -30,8 +34,15 @@ generateCSSCodeButton?.addEventListener('click', () => {
   font-size: ${button.fontSize};
   font-weight: ${button.fontWeight};
   color: ${button.color};
-  box-shadow: ${button.boxShadowX} ${button.boxShadowY} ${button.boxShadowBlur} ${button.boxShadowSpread} rgba(${redValue}, ${greenValue}, ${blueValue}, ${button.boxShadowOpacity});
+  box-shadow: ${button.boxShadowX} ${button.boxShadowY} ${button.boxShadowBlur} ${button.boxShadowSpread} rgba(${boxShadowRedValue}, ${boxShadowGreenValue}, ${boxShadowBlueValue}, ${button.boxShadowOpacity});
   background-color: ${button.backgroundColor};
+}
+
+.button:hover {
+  border-color: ${button.hoverBorderColor.value};
+  color: ${button.hoverColor.value};
+  box-shadow: ${button.hoverBoxShadowX.value} ${button.hoverBoxShadowY.value} ${button.hoverBoxShadowBlur.value} ${button.hoverBoxShadowSpread.value} rgba(${hoverBoxShadowRedValue}, ${hoverBoxShadowGreenValue}, ${hoverBoxShadowBlueValue}, ${button.hoverBoxShadowOpacity.value});
+  background-color: ${button.hoverBackgroundColor.value};
 }`
 
     generatedCSSCodeArea.style.display = 'inherit'
