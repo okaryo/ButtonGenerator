@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ButtonGenerator</title>
+  <title>Button Generator</title>
   <link rel="icon" href="favicon.ico">
 </head>
 <body>
@@ -43,8 +43,8 @@
         </li>
         <li class="parameter_unit">
           <h6 class="parameter_header">borderColor</h6>
-          <code id="borderColorDisplayValue" class="parameter_value">#000000</code>
-          <input type="color" id="borderColorPicker" class="parameter_manipulator" value="#000000">
+          <code id="borderColorDisplayValue" class="parameter_value">#767676</code>
+          <input type="color" id="borderColorPicker" class="parameter_manipulator" value="#767676">
         </li>
         <li class="parameter_unit">
           <h6 class="parameter_header">fontSize</h6>
@@ -95,6 +95,83 @@
           <h6 class="parameter_header">backgroundColor</h6>
           <code id="backgroundColorDisplayValue" class="parameter_value">#efefef</code>
           <input type="color" id="backgroundColorPicker" class="parameter_manipulator" value="#efefef">
+        </li>
+      </ol>
+    </section>
+    <section class="parameter_menu">
+      <h3 class="parameter_menu_header">hover parameter</h3>
+      <ol class="parameter_list">
+        <li class="parameter_unit">
+          <h6 class="parameter_header">borderColor</h6>
+          <code id="borderColorHoverDisplayValue" class="parameter_value">#767676</code>
+          <label for="borderColorHoverCheckBox">
+            <input type="checkbox" id="borderColorHoverCheckBox" class="hover_active_checkbox">active
+          </label>
+          <input type="color" id="borderColorHoverPicker" class="parameter_manipulator" value="#767676">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">color</h6>
+          <code id="colorHoverDisplayValue" class="parameter_value">#000000</code>
+          <label for="colorHoverCheckBox">
+            <input type="checkbox" id="colorHoverCheckBox" class="hover_active_checkbox">active
+          </label>
+          <input type="color" id="colorHoverPicker" class="parameter_manipulator" value="#000000">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowX</h6>
+          <code id="boxShadowXHoverDisplayValue" class="parameter_value">0px</code>
+          <label for="boxShadowXHoverCheckBox">
+            <input type="checkbox" id="boxShadowXHoverCheckBox" class="hover_active_checkbox">active
+          </label>
+          <input type="range" id="boxShadowXHoverRange" class="parameter_manipulator" value="0" min="0" max="50">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowY</h6>
+          <code id="boxShadowYHoverDisplayValue" class="parameter_value">0px</code>
+          <label for="boxShadowYHoverCheckBox">
+            <input type="checkbox" id="boxShadowYHoverCheckBox" class="hover_active_checkbox">active
+          </label>
+          <input type="range" id="boxShadowYHoverRange" class="parameter_manipulator" value="0" min="0" max="50">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowBlur</h6>
+          <code id="boxShadowBlurHoverDisplayValue" class="parameter_value">0px</code>
+          <label for="boxShadowBlurHoverCheckBox">
+            <input type="checkbox" id="boxShadowBlurHoverCheckBox" class="hover_active_checkbox">active
+          </label>
+          <input type="range" id="boxShadowBlurHoverRange" class="parameter_manipulator" value="0" min="0" max="50">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowSpread</h6>
+          <code id="boxShadowSpreadHoverDisplayValue" class="parameter_value">0px</code>
+          <label for="boxShadowSpreadHoverCheckBox">
+            <input type="checkbox" id="boxShadowSpreadHoverCheckBox" class="hover_active_checkbox">active
+          </label>
+          <input type="range" id="boxShadowSpreadHoverRange" class="parameter_manipulator" value="0" min="0" max="50">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowColor</h6>
+          <code id="boxShadowColorHoverDisplayValue" class="parameter_value">#ffffff</code>
+          <label for="boxShadowColorHoverCheckBox">
+            <input type="checkbox" id="boxShadowColorHoverCheckBox" class="hover_active_checkbox">active
+          </label>
+          <input type="color" id="boxShadowColorHoverPicker" class="parameter_manipulator" value="#ffffff">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">boxShadowOpacity</h6>
+          <code id="boxShadowOpacityHoverDisplayValue" class="parameter_value">0.75</code>
+          <label for="boxShadowOpacityHoverCheckBox">
+            <input type="checkbox" id="boxShadowOpacityHoverCheckBox" class="hover_active_checkbox">active
+          </label>
+          <input type="range" id="boxShadowOpacityHoverRange" class="parameter_manipulator" value="0.75" max="1" min="0" step="0.01">
+        </li>
+        <li class="parameter_unit">
+          <h6 class="parameter_header">backgroundColor</h6>
+          <code id="backgroundColorHoverDisplayValue" class="parameter_value">#efefef</code>
+          <label for="backgroundColorHoverCheckBox">
+            <input type="checkbox" id="backgroundColorHoverCheckBox" class="hover_active_checkbox">active
+          </label>
+          <input type="color" id="backgroundColorHoverPicker" class="parameter_manipulator" value="#efefef">
         </li>
       </ol>
     </section>

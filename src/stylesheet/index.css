@@ -72,6 +72,10 @@ header {
   width: 90%;
 }
 
+.hover_active_checkbox {
+  vertical-align: middle;
+}
+
 .generate_code_block {
   display: flex;
   flex-direction: column;
