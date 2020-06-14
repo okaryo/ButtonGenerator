@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -32,15 +36,14 @@ button {
 
 .parameter_block {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   padding: 0 20px;
   color: #333333;
 }
 
 .parameter_menu {
-  width: 45%;
-  max-width: 300px;
+  width: 30%;
+  max-width: 400px;
   padding: 12px;
 }
 
@@ -192,4 +195,32 @@ footer {
   color: #227000;
   box-shadow: 0px 0px 33px 12px rgba(51, 255, 75, 0.75);
   background-color: #ffba42;
+}
+
+@media (max-width: 810px) {
+  .parameter_block {
+    flex-wrap: wrap;
+  }
+  
+  .parameter_menu {
+    width: 45%;
+  }
+
+  .parameter_manipulator {
+    width: 99%;
+  }
+}
+
+@media (max-width: 650px) {
+  .parameter_block {
+    flex-wrap: wrap;
+  }
+  
+  .parameter_menu {
+    width: 90%;
+  }
+
+  .parameter_manipulator {
+    width: 99%;
+  }
 }
