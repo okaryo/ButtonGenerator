@@ -149,7 +149,21 @@ footer {
   background-color: #f58a8a;
 }
 
-.randomStyleClass2  {
+.randomStyleClass1:hover {
+  border-color: #f25050;
+  color: #049a89;
+  box-shadow: 5px 5px 12px 5px rgba(255, 212, 138, 0.41);
+  background-color: #f9c4fd;
+}
+
+.randomStyleClass1:active {
+  border-color: #90e4d3;
+  color: #bda405;
+  box-shadow: 10px 10px 20px 20px rgba(154, 125, 232, 0.75);
+  background-color: #f6cbcb;
+}
+
+.randomStyleClass2 {
   height: 44px;
   width: 188px;
   border: dotted 4px #8a89e1;
@@ -159,6 +173,20 @@ footer {
   color: #665824;
   box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.75);
   background-color: #eed3b4;
+}
+
+.randomStyleClass2:hover {
+  border-color: #bda5fd;
+  color: #26d95c;
+  box-shadow: 20px 20px 10px 10px rgba(196, 135, 135, 0.42);
+  background-color: #e7f57a;
+}
+
+.randomStyleClass2:active {
+  border-color: #3eb652;
+  color: #e84921;
+  box-shadow: 10px 10px 28px 28px rgba(117, 255, 209, 0.56);
+  background-color: #ffae52;
 }
 
 .randomStyleClass3 {
@@ -173,6 +201,20 @@ footer {
   background-color: #ffffff;
 }
 
+.randomStyleClass3:hover {
+  border-color: #d4a2e2;
+  color: #f57a7a;
+  box-shadow: 2px 2px 10px 35px rgba(255, 199, 46, 0.75);
+  background-color: #ff1100;
+}
+
+.randomStyleClass3:active {
+  border-color: #666bff;
+  color: #85ffaf;
+  box-shadow: 0px 0px 20px 20px rgba(153, 153, 153, 0.24);
+  background-color: #dd7b46;
+}
+
 .randomStyleClass4 {
   height: 62px;
   width: 181px;
@@ -185,6 +227,20 @@ footer {
   background-color: #00e682;
 }
 
+.randomStyleClass4:hover {
+  border-color: #ffd6d6;
+  color: #008a1c;
+  box-shadow: 0px 0px 50px 20px rgba(255, 187, 41, 0.28);
+  background-color: #ff3300;
+}
+
+.randomStyleClass4:active {
+  border-color: #ff99e9;
+  color: #7989fb;
+  box-shadow: 0px 0px 20px 50px rgba(148, 255, 155, 0.29);
+  background-color: #ee00ff;
+}
+
 .randomStyleClass5 {
   height: 100px;
   width: 100px;
@@ -195,6 +251,20 @@ footer {
   color: #227000;
   box-shadow: 0px 0px 33px 12px rgba(51, 255, 75, 0.75);
   background-color: #ffba42;
+}
+
+.randomStyleClass5:hover {
+  border-color: #80ffa6;
+  color: #ffa552;
+  box-shadow: 10px 0px 18px 30px rgba(165, 133, 255, 0.38);
+  background-color: #4dff58;
+}
+
+.randomStyleClass5:active {
+  border-color: #80ecff;
+  color: #5cff85;
+  box-shadow: 0px 10px 18px 50px rgba(255, 97, 97, 0.27);
+  background-color: #8c75ff;
 }
 
 @media (max-width: 810px) {
