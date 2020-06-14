@@ -33,6 +33,16 @@ export class Button {
   hoverBoxShadowOpacity: propertyStaus
   hoverBackgroundColor: propertyStaus
 
+  activeBorderColor: propertyStaus
+  activeColor: propertyStaus
+  activeBoxShadowX: propertyStaus
+  activeBoxShadowY: propertyStaus
+  activeBoxShadowBlur: propertyStaus
+  activeBoxShadowSpread: propertyStaus
+  activeBoxShadowColor: propertyStaus
+  activeBoxShadowOpacity: propertyStaus
+  activeBackgroundColor: propertyStaus
+
   constructor(targetId: string) {
     this.targetButtonElement = document.getElementById(targetId)
 
@@ -90,6 +100,43 @@ export class Button {
       value: '#efefef'
     }
 
+    this.activeBorderColor = {
+      status: false,
+      value: '#767676'
+    }
+    this.activeColor = {
+      status: false,
+      value: '#000000'
+    }
+    this.activeBoxShadowX = {
+      status: false,
+      value: '0px'
+    }
+    this.activeBoxShadowY = {
+      status: false,
+      value: '0px'
+    }
+    this.activeBoxShadowBlur = {
+      status: false,
+      value: '0px'
+    }
+    this.activeBoxShadowSpread = {
+      status: false,
+      value: '0px'
+    }
+    this.activeBoxShadowColor = {
+      status: false,
+      value: '#ffffff'
+    }
+    this.activeBoxShadowOpacity = {
+      status: false,
+      value: 0.75
+    }
+    this.activeBackgroundColor = {
+      status: false,
+      value: '#efefef'
+    }
+
     this.initializeButtonParameter()
 
     this.setHeightEventListener()
@@ -109,6 +156,7 @@ export class Button {
     this.setBoxShadowColorEventListener()
     this.setBackgroundColorEventListener()
 
+    // for hover methods
     this.setHoverEventListener()
     this.setHoverBorderColorEventListener()
     this.setHoverColorEventListener()
@@ -119,6 +167,18 @@ export class Button {
     this.setHoverBoxShadowColorEventListener()
     this.setHoverBoxShadowOpacityEventListener()
     this.setHoverBackgroundColorEventListener()
+
+    // for active methods
+    this.setActiveEventListener()
+    this.setActiveBorderColorEventListener()
+    this.setActiveColorEventListener()
+    this.setActiveBoxShadowXEventListener()
+    this.setActiveBoxShadowYEventListener()
+    this.setActiveBoxShadowBlurEventListener()
+    this.setActiveBoxShadowSpreadEventListener()
+    this.setActiveBoxShadowColorEventListener()
+    this.setActiveBoxShadowOpacityEventListener()
+    this.setActiveBackgroundColorEventListener()
   }
 
   initializeButtonParameter() {
@@ -420,6 +480,7 @@ export class Button {
     })
   }
 
+  // for hover methods
   setHoverEventListener() {
     this.targetButtonElement?.addEventListener('mouseover', (e) => {
       const targetButton = e.target as HTMLElement
@@ -678,6 +739,269 @@ export class Button {
         this.hoverBackgroundColor.status = true
       } else {
         this.hoverBackgroundColor.status = false
+      }
+    })
+  }
+
+  // for active methods
+  setActiveEventListener() {
+    this.targetButtonElement?.addEventListener('mousedown', (e) => {
+      const targetButton = e.target as HTMLElement
+      targetButton.style.borderColor = this.activeBorderColor.status ? this.activeBorderColor.value as string : this.borderColor
+      targetButton.style.color = this.activeColor.status ? this.activeColor.value as string : this.color
+      targetButton.style.backgroundColor = this.activeBackgroundColor.status ? this.activeBackgroundColor.value as string : this.backgroundColor
+
+      let boxShadowProperty = ''
+
+      boxShadowProperty += this.activeBoxShadowX.status ? `${this.activeBoxShadowX.value as string} ` : `${this.boxShadowX} `
+      boxShadowProperty += this.activeBoxShadowY.status ? `${this.activeBoxShadowY.value as string} ` : `${this.boxShadowY} `
+      boxShadowProperty += this.activeBoxShadowBlur.status ? `${this.activeBoxShadowBlur.value as string} ` : `${this.boxShadowBlur} `
+      boxShadowProperty += this.activeBoxShadowSpread.status ? `${this.activeBoxShadowSpread.value as string} ` : `${this.boxShadowSpread} `
+
+      const boxShadowColorRed = this.activeBoxShadowColor.status ? parseInt((this.activeBoxShadowColor.value as string).slice(1, 3), 16) : parseInt(this.boxShadowColor.slice(1, 3), 16)
+      const boxShadowColorGreen = this.activeBoxShadowColor.status ? parseInt((this.activeBoxShadowColor.value as string).slice(3, 5), 16) : parseInt(this.boxShadowColor.slice(3, 5), 16)
+      const boxShadowColorBlue = this.activeBoxShadowColor.status ? parseInt((this.activeBoxShadowColor.value as string).slice(5, 7), 16) : parseInt(this.boxShadowColor.slice(5, 7), 16)
+      const boxShadowOpacity = this.activeBoxShadowOpacity.status ? this.activeBoxShadowOpacity.value : this.boxShadowOpacity
+
+      boxShadowProperty += `rgba(${boxShadowColorRed}, ${boxShadowColorGreen}, ${boxShadowColorBlue}, ${boxShadowOpacity})`
+
+      targetButton.style.boxShadow = boxShadowProperty
+    })
+    this.targetButtonElement?.addEventListener('mouseup', (e) => {
+      const targetButton = e.target as HTMLElement
+
+      const redValue   = parseInt(this.boxShadowColor.slice(1, 3), 16)
+      const greenValue = parseInt(this.boxShadowColor.slice(3, 5), 16)
+      const blueValue  = parseInt(this.boxShadowColor.slice(5, 7), 16)
+
+      targetButton.style.borderColor = this.borderColor
+      targetButton.style.color = this.color
+      targetButton.style.boxShadow = `${this.boxShadowX} ${this.boxShadowY} ${this.boxShadowBlur} ${this.boxShadowSpread} rgba(${redValue}, ${greenValue}, ${blueValue}, ${this.boxShadowOpacity})`
+      targetButton.style.backgroundColor = this.backgroundColor
+    })
+  }
+
+  setActiveBorderColorEventListener() {
+    const borderColorActiveCheckBox = document.getElementById('borderColorActiveCheckBox')
+    const borderColorActivePicker = document.getElementById('borderColorActivePicker')
+    const borderColorActiveDisplayValue = document.getElementById('borderColorActiveDisplayValue')
+
+    if (!(borderColorActiveCheckBox && borderColorActivePicker && borderColorActiveDisplayValue)) return
+
+    borderColorActivePicker.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement
+
+      this.activeBorderColor.value = target.value
+      borderColorActiveDisplayValue.innerText = target.value
+    })
+
+    borderColorActiveCheckBox.addEventListener('change', (e) => {
+      const targetCheckbox = e.target as HTMLInputElement
+
+      if (targetCheckbox.checked) {
+        this.activeBorderColor.status = true
+      } else {
+        this.activeBorderColor.status = false
+      }
+    })
+  }
+
+  setActiveColorEventListener() {
+    const colorActiveCheckBox = document.getElementById('colorActiveCheckBox')
+    const colorActivePicker = document.getElementById('colorActivePicker')
+    const colorActiveDisplayValue = document.getElementById('colorActiveDisplayValue')
+
+    if (!(colorActiveCheckBox && colorActivePicker && colorActiveDisplayValue)) return
+
+    colorActivePicker.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement
+
+      this.activeColor.value = target.value
+      colorActiveDisplayValue.innerText = target.value
+    })
+
+    colorActiveCheckBox.addEventListener('change', (e) => {
+      const targetCheckbox = e.target as HTMLInputElement
+
+      if (targetCheckbox.checked) {
+        this.activeColor.status = true
+      } else {
+        this.activeColor.status = false
+      }
+    })
+  }
+
+  setActiveBoxShadowXEventListener() {
+    const boxShadowXActiveCheckBox = document.getElementById('boxShadowXActiveCheckBox')
+    const boxShadowXActiveRange = document.getElementById('boxShadowXActiveRange')
+    const boxShadowXActiveDisplayValue = document.getElementById('boxShadowXActiveDisplayValue')
+
+    if (!(boxShadowXActiveCheckBox && boxShadowXActiveRange && boxShadowXActiveDisplayValue)) return
+
+    boxShadowXActiveRange.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement
+
+      this.activeBoxShadowX.value = target.value + 'px'
+      boxShadowXActiveDisplayValue.innerText = target.value + 'px'
+    })
+
+    boxShadowXActiveCheckBox.addEventListener('change', (e) => {
+      const targetCheckbox = e.target as HTMLInputElement
+
+      if (targetCheckbox.checked) {
+        this.activeBoxShadowX.status = true
+      } else {
+        this.activeBoxShadowX.status = false
+      }
+    })
+  }
+
+  setActiveBoxShadowYEventListener() {
+    const boxShadowYActiveCheckBox = document.getElementById('boxShadowYActiveCheckBox')
+    const boxShadowYActiveRange = document.getElementById('boxShadowYActiveRange')
+    const boxShadowYActiveDisplayValue = document.getElementById('boxShadowYActiveDisplayValue')
+
+    if (!(boxShadowYActiveCheckBox && boxShadowYActiveRange && boxShadowYActiveDisplayValue)) return
+
+    boxShadowYActiveRange.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement
+
+      this.activeBoxShadowY.value = target.value + 'px'
+      boxShadowYActiveDisplayValue.innerText = target.value + 'px'
+    })
+
+    boxShadowYActiveCheckBox.addEventListener('change', (e) => {
+      const targetCheckbox = e.target as HTMLInputElement
+
+      if (targetCheckbox.checked) {
+        this.activeBoxShadowY.status = true
+      } else {
+        this.activeBoxShadowY.status = false
+      }
+    })
+  }
+
+  setActiveBoxShadowBlurEventListener() {
+    const boxShadowBlurActiveCheckBox = document.getElementById('boxShadowBlurActiveCheckBox')
+    const boxShadowBlurActiveRange = document.getElementById('boxShadowBlurActiveRange')
+    const boxShadowBlurActiveDisplayValue = document.getElementById('boxShadowBlurActiveDisplayValue')
+
+    if (!(boxShadowBlurActiveCheckBox && boxShadowBlurActiveRange && boxShadowBlurActiveDisplayValue)) return
+
+    boxShadowBlurActiveRange.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement
+
+      this.activeBoxShadowBlur.value = target.value + 'px'
+      boxShadowBlurActiveDisplayValue.innerText = target.value + 'px'
+    })
+
+    boxShadowBlurActiveCheckBox.addEventListener('change', (e) => {
+      const targetCheckbox = e.target as HTMLInputElement
+
+      if (targetCheckbox.checked) {
+        this.activeBoxShadowBlur.status = true
+      } else {
+        this.activeBoxShadowBlur.status = false
+      }
+    })
+  }
+
+  setActiveBoxShadowSpreadEventListener() {
+    const boxShadowSpreadActiveCheckBox = document.getElementById('boxShadowSpreadActiveCheckBox')
+    const boxShadowSpreadActiveRange = document.getElementById('boxShadowSpreadActiveRange')
+    const boxShadowSpreadActiveDisplayValue = document.getElementById('boxShadowSpreadActiveDisplayValue')
+
+    if (!(boxShadowSpreadActiveCheckBox && boxShadowSpreadActiveRange && boxShadowSpreadActiveDisplayValue)) return
+
+    boxShadowSpreadActiveRange.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement
+
+      this.activeBoxShadowSpread.value = target.value + 'px'
+      boxShadowSpreadActiveDisplayValue.innerText = target.value + 'px'
+    })
+
+    boxShadowSpreadActiveCheckBox.addEventListener('change', (e) => {
+      const targetCheckbox = e.target as HTMLInputElement
+
+      if (targetCheckbox.checked) {
+        this.activeBoxShadowSpread.status = true
+      } else {
+        this.activeBoxShadowSpread.status = false
+      }
+    })
+  }
+
+  setActiveBoxShadowColorEventListener() {
+    const boxShadowColorActiveCheckBox = document.getElementById('boxShadowColorActiveCheckBox')
+    const boxShadowColorActivePicker = document.getElementById('boxShadowColorActivePicker')
+    const boxShadowColorActiveDisplayValue = document.getElementById('boxShadowColorActiveDisplayValue')
+
+    if (!(boxShadowColorActiveCheckBox && boxShadowColorActivePicker && boxShadowColorActiveDisplayValue)) return
+
+    boxShadowColorActivePicker.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement
+
+      this.activeBoxShadowColor.value = target.value
+      boxShadowColorActiveDisplayValue.innerText = target.value
+    })
+
+    boxShadowColorActiveCheckBox.addEventListener('change', (e) => {
+      const targetCheckbox = e.target as HTMLInputElement
+
+      if (targetCheckbox.checked) {
+        this.activeBoxShadowColor.status = true
+      } else {
+        this.activeBoxShadowColor.status = false
+      }
+    })
+  }
+
+  setActiveBoxShadowOpacityEventListener() {
+    const boxShadowOpacityActiveCheckBox = document.getElementById('boxShadowOpacityActiveCheckBox')
+    const boxShadowOpacityActiveRange = document.getElementById('boxShadowOpacityActiveRange')
+    const boxShadowOpacityActiveDisplayValue = document.getElementById('boxShadowOpacityActiveDisplayValue')
+
+    if (!(boxShadowOpacityActiveCheckBox && boxShadowOpacityActiveRange && boxShadowOpacityActiveDisplayValue)) return
+
+    boxShadowOpacityActiveRange.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement
+
+      this.activeBoxShadowOpacity.value = target.value
+      boxShadowOpacityActiveDisplayValue.innerText = target.value
+    })
+
+    boxShadowOpacityActiveCheckBox.addEventListener('change', (e) => {
+      const targetCheckbox = e.target as HTMLInputElement
+
+      if (targetCheckbox.checked) {
+        this.activeBoxShadowOpacity.status = true
+      } else {
+        this.activeBoxShadowOpacity.status = false
+      }
+    })
+  }
+
+  setActiveBackgroundColorEventListener() {
+    const backgroundColorActiveCheckBox = document.getElementById('backgroundColorActiveCheckBox')
+    const backgroundColorActivePicker = document.getElementById('backgroundColorActivePicker')
+    const backgroundColorActiveDisplayValue = document.getElementById('backgroundColorActiveDisplayValue')
+
+    if (!(backgroundColorActiveCheckBox && backgroundColorActivePicker && backgroundColorActiveDisplayValue)) return
+
+    backgroundColorActivePicker.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement
+
+      this.activeBackgroundColor.value = target.value
+      backgroundColorActiveDisplayValue.innerText = target.value
+    })
+
+    backgroundColorActiveCheckBox.addEventListener('change', (e) => {
+      const targetCheckbox = e.target as HTMLInputElement
+
+      if (targetCheckbox.checked) {
+        this.activeBackgroundColor.status = true
+      } else {
+        this.activeBackgroundColor.status = false
       }
     })
   }

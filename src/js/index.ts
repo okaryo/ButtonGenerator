@@ -22,9 +22,12 @@ generateCSSCodeButton?.addEventListener('click', () => {
     const boxShadowRedValue   = parseInt(button.boxShadowColor.slice(1, 3), 16)
     const boxShadowGreenValue = parseInt(button.boxShadowColor.slice(3, 5), 16)
     const boxShadowBlueValue  = parseInt(button.boxShadowColor.slice(5, 7), 16)
-    const hoverBoxShadowRedValue   = parseInt((button.hoverBoxShadowColor.value as string).slice(1, 3), 16)
-    const hoverBoxShadowGreenValue = parseInt((button.hoverBoxShadowColor.value as string).slice(3, 5), 16)
-    const hoverBoxShadowBlueValue  = parseInt((button.hoverBoxShadowColor.value as string).slice(5, 7), 16)
+    const hoverBoxShadowRedValue    = parseInt((button.hoverBoxShadowColor.value as string).slice(1, 3), 16)
+    const hoverBoxShadowGreenValue  = parseInt((button.hoverBoxShadowColor.value as string).slice(3, 5), 16)
+    const hoverBoxShadowBlueValue   = parseInt((button.hoverBoxShadowColor.value as string).slice(5, 7), 16)
+    const activeBoxShadowRedValue   = parseInt((button.activeBoxShadowColor.value as string).slice(1, 3), 16)
+    const activeBoxShadowGreenValue = parseInt((button.activeBoxShadowColor.value as string).slice(3, 5), 16)
+    const activeBoxShadowBlueValue  = parseInt((button.activeBoxShadowColor.value as string).slice(5, 7), 16)
 
     const cssCode = `.button {
   height: ${button.height};
@@ -43,6 +46,13 @@ generateCSSCodeButton?.addEventListener('click', () => {
   color: ${button.hoverColor.value};
   box-shadow: ${button.hoverBoxShadowX.value} ${button.hoverBoxShadowY.value} ${button.hoverBoxShadowBlur.value} ${button.hoverBoxShadowSpread.value} rgba(${hoverBoxShadowRedValue}, ${hoverBoxShadowGreenValue}, ${hoverBoxShadowBlueValue}, ${button.hoverBoxShadowOpacity.value});
   background-color: ${button.hoverBackgroundColor.value};
+}
+
+.button:active {
+  border-color: ${button.activeBorderColor.value};
+  color: ${button.activeColor.value};
+  box-shadow: ${button.activeBoxShadowX.value} ${button.activeBoxShadowY.value} ${button.activeBoxShadowBlur.value} ${button.activeBoxShadowSpread.value} rgba(${activeBoxShadowRedValue}, ${activeBoxShadowGreenValue}, ${activeBoxShadowBlueValue}, ${button.activeBoxShadowOpacity.value});
+  background-color: ${button.activeBackgroundColor.value};
 }`
 
     generatedCSSCodeArea.style.display = 'inherit'
