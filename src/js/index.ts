@@ -1,7 +1,7 @@
 import "../stylesheet/index.css"
-import { ButtonStyle } from './button'
+import { Button } from './button'
 
-const button = new ButtonStyle('button')
+const button = new Button('button')
 
 const generateCSSCodeButton = document.getElementById('generateCSSCodeButton')
 const randomStyleClassForGenerateCodeButton = [

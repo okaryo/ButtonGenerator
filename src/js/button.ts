@@ -1,4 +1,4 @@
-export class ButtonStyle {
+export class Button {
   targetButtonElement: HTMLElement | null
   height: string
   width: string
